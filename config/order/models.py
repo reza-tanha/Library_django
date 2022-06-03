@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from book.models import Book
+from django.urls import reverse
 
 class Order(models.Model):
     USER = get_user_model()
@@ -10,7 +11,6 @@ class Order(models.Model):
     is_reserve = models.BooleanField(default=True)
     class Meta:
         ordering = ('reserv_date',)
-
 
     def __str__(self):
         return f"{self.book}"
