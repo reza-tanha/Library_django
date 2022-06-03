@@ -4,11 +4,12 @@
 
 ### books list api
 
-All books available on the site
-method GET
-login required
-path : 
-  ```127.0.0.1:8000/api/```
+- All books available on the site
+- method 
+  - GET
+- login required
+- path : 
+-   ```127.0.0.1:8000/api/```
 
 
 ### book detail api
