@@ -17,7 +17,7 @@
 - Information of a book
 - method
   -  GET
--login required
+- login required
 - path : 
 - ```127.0.0.1:8000/api/1```
 
