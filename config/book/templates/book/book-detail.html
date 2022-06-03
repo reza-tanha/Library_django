@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="card" style="width: 18rem;display:inline-block;">
+        <img src="{{ book.photo.url }}" alt="..." width="200px" height="200px">
+        <div class="card-body">
+            <h5 class="card-title">{{book.title}}</h5>
+            <p class="card-text" dir="ltr">
+                {{book.description}}
+            </p>
+            {% if not book.reserve %}
+                <a href="#" class="btn btn-primary">Reserve</a>
+            {% else %}
+                <h2>این کتاب رزرو شده است</h2>
+            {% endif %}
+            
+
+        </div>
+    </div>
+        
+{% endblock %}
