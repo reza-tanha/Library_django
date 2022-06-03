@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'book.apps.BookConfig',
+    'order.apps.OrderConfig',
 ]
 
 MIDDLEWARE = [
@@ -88,6 +89,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_URL = '/admin/login/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/

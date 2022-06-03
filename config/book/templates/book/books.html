@@ -13,6 +13,9 @@
                 <a href="{% url 'book:book-detail' book.pk %}" class="btn btn-primary">Show Book</a>
             </div>
         </div>
+        
+        {% empty %}
+        هیچ کتابی وجود ندارد
     {% endfor %}
 
 {% endblock content %}

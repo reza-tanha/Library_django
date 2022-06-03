@@ -13,7 +13,19 @@
 <body>
     {% load static %}
     <div class="alert alert-secondary" style="text-align: center;">
+        <ul>
+            <li>
+                <a href="{%url 'book:books' %}"> Home </a>
+            </li>
+            <li>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'order:my-orders' %}"> My Book </a>
+                {% endif %}
 
+            </li>
+          </ul>
+         
+        
         <div class="card-body">
             {% block content %} {% endblock %}
         </div>

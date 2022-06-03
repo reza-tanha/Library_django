@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+    
+        <table style="border: 1px solid black;" class="table">
+            <tr>
+                <th>کتاب</th>
+                <th>تاریخ رزرو</th>
+                <th>حذف</th>
+            </tr>
+            {% for order in orders %}
+                {%if order.is_reserve %}
+                    <tr>
+                        <td style="border: 1px solid black;"><a href="{% url 'book:book-detail' order.book.id%}">{{order.book.title}}</a></td>
+                        <td style="border: 1px solid black;">{{order.reserv_date}}</td>
+                        <td style="border: 1px solid black;"><a href="{% url 'order:del-orders' order.id%}">حذف</a></td>
+                    </tr>
+                {% endif %}
+            {% empty %}
+                    هیچ کتابی رزرو نکرده اید 
+            {% endfor %}
+        </table>
+
+{% endblock content %}

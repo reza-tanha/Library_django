@@ -17,6 +17,5 @@ def book_detail(request, pk):
     context = {
         'book':book
     }
-    print(context)
     return render(request, 'book/book-detail.html', context)
 

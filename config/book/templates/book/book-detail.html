@@ -11,7 +11,7 @@
                 {{book.description}}
             </p>
             {% if not book.reserve %}
-                <a href="#" class="btn btn-primary">Reserve</a>
+                <a href="{% url 'order:create-orders' book.id %}" class="btn btn-primary">Reserve</a>
             {% else %}
                 <h2>این کتاب رزرو شده است</h2>
             {% endif %}
