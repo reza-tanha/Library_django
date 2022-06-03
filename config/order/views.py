@@ -22,7 +22,6 @@ def order_delete(request, pk):
     order.save()
     return redirect('order:my-orders')
 
-
 @login_required
 def order_create(request, pk):
     book = get_object_or_404(Book, pk=pk)
