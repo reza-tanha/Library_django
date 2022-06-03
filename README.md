@@ -9,41 +9,45 @@
   - GET
 - login required
 - path : 
--   ```127.0.0.1:8000/api/```
+-  ```127.0.0.1:8000/api/```
 
 
 ### book detail api
 
-Information of a book
-method GET
-login required
-path : 
-  ```127.0.0.1:8000/api/1```
+- Information of a book
+- method
+  -  GET
+-login required
+- path : 
+- ```127.0.0.1:8000/api/1```
 
 
 
 ### user orders reserve
 
-method GET
-login required
-path : 
-  ```127.0.0.1:8000/api/orders/```
+- method
+  -  GET
+- login required
+- path : 
+- ```127.0.0.1:8000/api/orders/```
 
 
 ### book order reserve
 
-method GET
-login required
-path : 
-  ```127.0.0.1:8000/api/orders/```
+- method 
+  - GET
+- login required
+- path : 
+  -  ```127.0.0.1:8000/api/orders/```
 
 
 ### Order a book
 
-method POST
-login required
-path : 
-  ```127.0.0.1:8000/api/orders/add/```
+- method
+  -  POST
+- login required
+- path : 
+-  ```127.0.0.1:8000/api/orders/add/```
   
   ```
   data = {
@@ -56,10 +60,11 @@ path :
 
 ### delete Order from user orders 
 
-method DELETE
-login required
-path : 
-  ```127.0.0.1:8000/api/orders/delete/<order id>```
+- method
+  -  DELETE
+- login required
+- path : 
+-  ```127.0.0.1:8000/api/orders/delete/<order id>```
   
   
 
