@@ -19,7 +19,7 @@ print(response.json())
 
 - result : 
 
-[image](http://i.imgur.com/WqnREXr.png)
+! [api_all_book](http://i.imgur.com/WqnREXr.png, "api_all_book")
 
 
 
