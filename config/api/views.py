@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from .serializer import BookSerializer, OrderSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework.generics import RetrieveAPIView,ListCreateAPIView
+from rest_framework.generics import RetrieveAPIView
 from book.models import Book
 from order.models import Order
 
@@ -30,7 +30,7 @@ def orders(request):
 @api_view(['POST'])
 def order_create(request):
     order = OrderSerializer(data=request.data)
-    book = Book.objects.get(pk=request.data.get("book"))
+    book = get_object_or_404(Book, pk=request.data.get("book"))
     if not book.reserve:
         if order.is_valid():
             book.reserve=True
@@ -46,9 +46,10 @@ def order_create(request):
         }
     """
 
+
 @api_view(['DELETE'])
 def order_delete(request, pk):
-    order = Order.objects.get(user=request.user, pk=pk)
+    order = get_object_or_404(Order, user=request.user, pk=pk)
     if order:
         book = Book.objects.get(pk=order.book.pk)
         book.reserve=False

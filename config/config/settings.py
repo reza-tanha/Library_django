@@ -29,10 +29,6 @@ INSTALLED_APPS = [
     'order.apps.OrderConfig',
     'api.apps.ApiConfig',
     'rest_framework',
-    'rest_framework_swagger',
-    'rest_framework.authtoken',
-
-
 ]
 
 
@@ -129,7 +125,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #api 
 
 REST_FRAMEWORK = {
-
 
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated'

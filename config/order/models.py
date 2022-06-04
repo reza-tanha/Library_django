@@ -9,6 +9,7 @@ class Order(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='book_order', verbose_name='نام کتاب')
     reserv_date = models.DateTimeField(auto_now_add=True)
     is_reserve = models.BooleanField(default=True)
+    
     class Meta:
         ordering = ('reserv_date',)
 
