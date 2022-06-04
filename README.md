@@ -242,6 +242,33 @@ print(response.json())
  
 
 
+### تحویل کتاب توسط کاربر  :
+
+
+   - DELETE
+- لینک درخواست :
+-   ```http://127.0.0.1:8000/api/order/delete/<id order>```
+
+درخواست با پایتون : 
+```
+
+  HEADER = {
+        "Content-Type": "application/json",
+        "Authorization": "Token b65a24acc9eee40b5ddf9952bfb4bfe13eb86866",
+  }
+  
+  response = requests.get('http://127.0.0.1:8000/api/order/delete/70', headers=HEADER)
+  print(response.json())
+```
+### نتیجه :     
+
+- result : 
+  
+ ```
+ "order Deleted"
+ ```
+ 
+
 
 
 
@@ -261,76 +288,6 @@ print(response.json())
     # response = requests.post('http://127.0.0.1:8000/api/order/add/', headers=HEADER, data=json.dumps(DATA))
     # print(response.json())
 
-
-
-
-![api_all_book](http://i.imgur.com/WqnREXr.png "api_all_book")
-
-
-
-
-
-
-
-http://127.0.0.1:8000/api/
-## api usage guide
-
-### books list api
-
-- All books available on the site
-- method 
-  - GET
-- login required
-- path : 
--  ```127.0.0.1:8000/api/```
-
-
-### book detail api
-
-- Information of a book
-- method
-  -  GET
-- login required
-- path : 
-- ```127.0.0.1:8000/api/1```
-
-
-
-### user books reserve
-
-- method
-  -  GET
-- login required
-- path : 
-- ```127.0.0.1:8000/api/orders/```
-
-
-### Order a book
-
-- method
-  -  POST
-- login required
-- path : 
--  ```127.0.0.1:8000/api/orders/add/```
-  
-  ```
-  data = {
-    'user': <user id>, 
-    'book': <book id>, 
-    'is_reserve': true
-  }
-  ```
-  
-
-### delete Order from user orders 
-
-- method
-  -  DELETE
-- login required
-- path : 
--  ```127.0.0.1:8000/api/orders/delete/<order id>```
-  
-  
 
 
 
