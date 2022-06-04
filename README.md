@@ -153,7 +153,7 @@ print(response.json())
 - result : 
   
  ``` json
-{'Token': 'b65a24acc9eee40b5ddf9952bfb4bfe13eb86866', 'Message': 'Register Success'}
+{"Token": "b65a24acc9eee40b5ddf9952bfb4bfe13eb86866", "Message": "Register Success"}
 
  ```
 
