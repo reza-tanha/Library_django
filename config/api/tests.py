@@ -26,7 +26,9 @@ class GetUserOrdersApi(TestCase):
     # print(response.json())
 
 
-class AddUserOrderApi(TestCase):
+
+
+class CreateUserOrderApi(TestCase):
     HEADER = {
         "Content-Type": "application/json",
         "Authorization": "Token 7062a10bde0cfba6b3692f8451b5f7c730a55a4e",
@@ -37,6 +39,18 @@ class AddUserOrderApi(TestCase):
             "book": "5"
         }
     # response = requests.post('http://127.0.0.1:8000/api/order/add/', headers=HEADER, data=json.dumps(DATA))
+    # print(response.json())
+
+class AddUserOrderApi(TestCase):
+    HEADER = {
+        "Content-Type": "application/json",
+    }
+    DATA = {
+            "username": "user1",
+            "email": "user1@gmail.com",
+            "password": "pa55word"
+        }
+    # response = requests.post('http://127.0.0.1:8000/api/register/', headers=HEADER, data=json.dumps(DATA))
     # print(response.json())
 
 
