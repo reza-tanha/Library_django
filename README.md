@@ -20,9 +20,11 @@ print(response.json())
 - result : 
 <details>
   <summary>
+    ```
     Result 
+    ```
   </summary>
-
+``` json
 [
     {
         "id": 1,
@@ -91,6 +93,7 @@ print(response.json())
         ]
     }    
 ]
+  ```
   </details>
 
 
