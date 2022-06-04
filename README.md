@@ -18,12 +18,7 @@ print(response.json())
 ### نتیجه نمایش داده شده تمامی کتابهای موجود در سیستم است(رزرو و غیر رزرو)
 
 - result : 
-<details>
-  <summary>
-    ```
-    Result 
-    ```
-  </summary>
+
 ``` json
 [
     {
@@ -94,8 +89,6 @@ print(response.json())
     }    
 ]
   ```
-  </details>
-
 
 
 
