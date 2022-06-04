@@ -1,3 +1,4 @@
+from tokenize import Token
 from django.shortcuts import get_object_or_404
 from .serializer import BookSerializer, OrderSerializer, UserSerializer
 from rest_framework.decorators import api_view, permission_classes
@@ -6,7 +7,7 @@ from rest_framework.generics import RetrieveAPIView
 from book.models import Book
 from order.models import Order
 from rest_framework.permissions import AllowAny
-
+from rest_framework.authtoken.models import Token
 
 
 @api_view(['GET'])
@@ -66,7 +67,20 @@ def order_delete(request, pk):
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def register(request):
-    data = UserSerializer(request.data)
-    if data.is_valid():
+    serialize = UserSerializer(data=request.data)
+    if serialize.is_valid():
+        user = serialize.save()
+        data = {}
+        data['Token'] = Token.objects.get(user=user).key
+        data['Message'] = 'Register Success'
+    return Response(data)
+        
+    """
+    {
+        "username":"test",
+        "email":"test@test.com",
+        "password":"testtest"
+    }
+    """
 
-        pass
+ 
