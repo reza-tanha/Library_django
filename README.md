@@ -15,10 +15,13 @@
 response = requests.get('http://127.0.0.1:8000/api/')
 print(response.json())
 ```
-# نتیجه نمایش داده شده تمامی کتابهای موجود در سیستم است(رزرو و غیر رزرو)
+### نتیجه نمایش داده شده تمامی کتابهای موجود در سیستم است(رزرو و غیر رزرو)
 
 - result : 
-
+<details>
+  <summary>
+    test
+  </summary>
 ```json
 
 [
@@ -90,6 +93,7 @@ print(response.json())
     }    
 ]
 ```
+  </details>
 
 
 
