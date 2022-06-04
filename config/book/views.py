@@ -5,14 +5,19 @@ from .models import Book
 
 
 class Home(ListView):
+    """
+        List of all books available on the website.
+    """
     template_name = 'book/books.html'
     context_object_name = 'books'
     ordering =['-title']
-    def get_queryset(self):
-        return Book.objects.all()
+    model = Book
 
 
-def book_detail(request, pk):
+def book_detail(request, pk:int):
+    """
+        Display of a special book with ID
+    """
     book = get_object_or_404(Book,pk=pk)
     context = {
         'book':book

@@ -8,7 +8,6 @@ app_name = 'book'
 urlpatterns = [
     path('', Home.as_view(), name='books'),
     path('book/<int:pk>', book_detail, name='book-detail'),
-
 ]
 
 if settings.DEBUG:

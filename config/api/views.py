@@ -51,7 +51,7 @@ def order_create(request):
 def order_delete(request, pk):
     order = get_object_or_404(Order, user=request.user, pk=pk)
     if order:
-        book = Book.objects.get(pk=order.book.pk)
+        book = get_object_or_404(Book, pk=order.book.pk)
         book.reserve=False
         book.save()
         order.is_reserve=False

@@ -6,7 +6,6 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def orders_list(request):
-    # orders = Order.objects.filter(user=request.user, book__reserve=True)
     orders = Order.objects.filter(user=request.user, is_reserve=True)
     context = {
         'orders':orders
