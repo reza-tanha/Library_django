@@ -20,9 +20,8 @@ print(response.json())
 - result : 
 <details>
   <summary>
-    test
+    Result 
   </summary>
-```json
 
 [
     {
@@ -92,7 +91,6 @@ print(response.json())
         ]
     }    
 ]
-```
   </details>
 
 
