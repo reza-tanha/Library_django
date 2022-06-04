@@ -15,11 +15,11 @@
 response = requests.get('http://127.0.0.1:8000/api/')
 print(response.json())
 ```
-نتیجه نمایش داده شده تمامی کتابهای موجود در سیستم است(رزرو و غیر رزرو)
-result : 
+# نتیجه نمایش داده شده تمامی کتابهای موجود در سیستم است(رزرو و غیر رزرو)
 
+- result : 
 
-(http://i.imgur.com/WqnREXr.png)[image]
+[image](http://i.imgur.com/WqnREXr.png)
 
 
 
