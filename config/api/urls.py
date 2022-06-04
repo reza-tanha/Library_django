@@ -7,7 +7,7 @@ urlpatterns = [
     path('<int:pk>', BookDetail.as_view(), name="book"),\
 
     path('orders/', orders, name="orders"),
-    path('order/add', order_create, name="order-add"),
+    path('order/add/', order_create, name="order-add"),
     path('order/delete/<int:pk>', order_delete, name="order-delete"),
 
     path('register/', register, name='user-register'),

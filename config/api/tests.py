@@ -1,5 +1,6 @@
 from django.test import TestCase
 import requests
+import json
 
 
 
@@ -19,9 +20,32 @@ class GetUserOrdersApi(TestCase):
 
     HEADER = {
         "Content-Type": "application/json",
-        "Authorization": "Token 620ef93843ede0c8762beb73a1d21e1e82eae480",
+        "Authorization": "Token 7062a10bde0cfba6b3692f8451b5f7c730a55a4e",
     }
-    response = requests.get('http://127.0.0.1:8000/api/orders/', headers=HEADER)
-    print(response.json())
+    # response = requests.get('http://127.0.0.1:8000/api/orders/', headers=HEADER)
+    # print(response.json())
 
+
+class AddUserOrderApi(TestCase):
+    HEADER = {
+        "Content-Type": "application/json",
+        "Authorization": "Token 7062a10bde0cfba6b3692f8451b5f7c730a55a4e",
+    }
+    DATA = {
+            "is_reserve": True,
+            "user": "1",
+            "book": "5"
+        }
+    # response = requests.post('http://127.0.0.1:8000/api/order/add/', headers=HEADER, data=json.dumps(DATA))
+    # print(response.json())
+
+
+class DeleteUserOrderApi(TestCase):
+    HEADER = {
+        "Content-Type": "application/json",
+        "Authorization": "Token 7062a10bde0cfba6b3692f8451b5f7c730a55a4e",
+    }
+
+    # response = requests.delete('http://127.0.0.1:8000/api/order/delete/67', headers=HEADER)
+    # print(response.json())
 

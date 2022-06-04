@@ -9,10 +9,10 @@ class CreateOrder(TestCase):
     User = get_user_model()
     user = get_object_or_404(User, pk=1)
     book = get_object_or_404(Book, pk=5)
-    if not book.reserve:
-        order = Order.objects.create(user=user, book=book, is_reserve=True)
-        order.save()
-        # print("Create success")
+    # if not book.reserve:
+    #     order = Order.objects.create(user=user, book=book, is_reserve=True)
+    #     order.save()
+    #     # print("Create success")
 
 
 class DeleteOrder(TestCase):
@@ -21,11 +21,11 @@ class DeleteOrder(TestCase):
     book = get_object_or_404(Book, pk=5)
     order = get_object_or_404(Order, pk=41, user=user, book=book)
 
-    if order:
-        book.reserve = False
-        book.save()
-        order.is_reserve = False
-        order.save()
+    # if order:
+    #     book.reserve = False
+    #     book.save()
+    #     order.is_reserve = False
+    #     order.save()
         # print("delet Success")
 
 
