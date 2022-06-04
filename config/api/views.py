@@ -1,13 +1,16 @@
 from django.shortcuts import get_object_or_404
-from .serializer import BookSerializer, OrderSerializer
-from rest_framework.decorators import api_view
+from .serializer import BookSerializer, OrderSerializer, UserSerializer
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.generics import RetrieveAPIView
 from book.models import Book
 from order.models import Order
+from rest_framework.permissions import AllowAny
+
 
 
 @api_view(['GET'])
+@permission_classes([AllowAny])
 def books(request):
     books = Book.objects.all()
     book_serializer = BookSerializer(books, many=True)
@@ -17,6 +20,7 @@ def books(request):
 class BookDetail(RetrieveAPIView): 
     serializer_class = BookSerializer
     queryset = Book.objects.all()
+    permission_classes = [AllowAny, ]
 
 
 
@@ -59,4 +63,10 @@ def order_delete(request, pk):
         return Response("order Deleted")
 
 
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def register(request):
+    data = UserSerializer(request.data)
+    if data.is_valid():
 
+        pass
