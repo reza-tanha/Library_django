@@ -159,6 +159,109 @@ print(response.json())
 
 
 
+### گرفتن لیست کتابهای رزرو شده توسط کاربر  :
+
+
+   - GET
+- لینک درخواست :
+-   ```http://127.0.0.1:8000/api/orders/```
+
+درخواست با پایتون : 
+```
+
+  HEADER = {
+        "Content-Type": "application/json",
+        "Authorization": "Token b65a24acc9eee40b5ddf9952bfb4bfe13eb86866",
+  }
+  response = requests.get('http://127.0.0.1:8000/api/orders/', headers=HEADER)
+  print(response.json())
+```
+### نتیجه : ما دو کتاب رزرو کرده ایم.    
+
+- result : 
+  
+ ``` json
+[
+    {
+        "id": 68,
+        "reserv_date": "2022-06-04T15:59:58.411501Z",
+        "is_reserve": true,
+        "user": 1,
+        "book": 1
+    },
+    {
+        "id": 69,
+        "reserv_date": "2022-06-04T16:00:16.432125Z",
+        "is_reserve": true,
+        "user": 1,
+        "book": 5
+    }
+]
+ ```
+
+
+
+
+
+### رزرو کتاب توسط کاربر  :
+
+
+   - POST
+- لینک درخواست :
+-   ```http://127.0.0.1:8000/api/order/add/```
+
+درخواست با پایتون : 
+```
+
+  HEADER = {
+        "Content-Type": "application/json",
+        "Authorization": "Token b65a24acc9eee40b5ddf9952bfb4bfe13eb86866",
+  }
+  DATA = {
+        "is_reserve": True,
+        "user": "1",
+        "book": "5"
+    }
+  response = requests.get('http://127.0.0.1:8000/api/order/add/', headers=HEADER, data=json.dumps(DATA))
+  print(response.json())
+```
+### نتیجه : اگر کتاب از قبل رزرو نشده باشد به صورت زیر است.    
+
+- result : 
+  
+ ``` json
+ {
+    "id": 70,
+    "reserv_date": "2022-06-04T16:05:34.550885Z",
+    "is_reserve": true,
+    "user": 1,
+    "book": 6
+}
+
+ ```
+ 
+
+
+
+
+
+
+
+
+
+    HEADER = {
+        "Content-Type": "application/json",
+        "Authorization": "Token 7062a10bde0cfba6b3692f8451b5f7c730a55a4e",
+    }
+    DATA = {
+            "is_reserve": True,
+            "user": "1",
+            "book": "5"
+        }
+    # response = requests.post('http://127.0.0.1:8000/api/order/add/', headers=HEADER, data=json.dumps(DATA))
+    # print(response.json())
+
+
 
 
 ![api_all_book](http://i.imgur.com/WqnREXr.png "api_all_book")
