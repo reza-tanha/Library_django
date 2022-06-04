@@ -41,6 +41,7 @@ def order_create(request, pk):
     book = get_object_or_404(Book, pk=pk)
     if book.reserve:
         return redirect('order:my-orders')
+        
     order = Order.objects.create(user=request.user,book=book)
     order.save()
     book.reserve=True
