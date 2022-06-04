@@ -23,22 +23,13 @@
 
 
 
-### user orders reserve
+### user books reserve
 
 - method
   -  GET
 - login required
 - path : 
 - ```127.0.0.1:8000/api/orders/```
-
-
-### book order reserve
-
-- method 
-  - GET
-- login required
-- path : 
-  -  ```127.0.0.1:8000/api/orders/```
 
 
 ### Order a book
