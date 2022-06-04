@@ -4,6 +4,6 @@ from .models import Book
 
 class TestBook(TestCase):
     book = Book.objects.filter(reserve=True)
-    print(book)
+    # print(book)
 
     
