@@ -9,9 +9,6 @@ DEBUG = bool(os.environ.get("DEBUG",default=0))
 ALLOWED_HOSTS = ['*']
 
 
-SECRET_KEY='django-insecure-(cm@&s^e_@3@wfu&wvm@o%laobyaw502miw5+g^hlz++1#ekm='
-DEBUG=True
-
 CSRF_TRUSTED_ORIGINS = ['https://*','http://*','https://127.0.0.1','http://127.0.0.1', ]
 
 
