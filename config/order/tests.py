@@ -1,40 +1,38 @@
-from django.shortcuts import get_object_or_404
 from django.test import TestCase
-from .models import Order
-from book.models import Book
+from book.models import Author, Genre, Book
+from django.core.files.uploadedfile import SimpleUploadedFile
+from rest_framework.authtoken.models import Token
+from order.models import Order
 from django.contrib.auth import get_user_model
+User = get_user_model()
 
 
-class CreateOrder(TestCase):
-    User = get_user_model()
-    user = get_object_or_404(User, pk=1)
-    book = get_object_or_404(Book, pk=5)
-    # if not book.reserve:
-    #     order = Order.objects.create(user=user, book=book, is_reserve=True)
-    #     order.save()
-    #     # print("Create success")
+class OrderTestModel(TestCase):
+
+    def setUp(self):
+        self.author = Author.objects.create(name='shamlo')
+        self.genre = Genre.objects.create(title='love', slug='love')
+        img = SimpleUploadedFile('media/images/book/2022/06/02/ana-carani.png', b'whatevercontentsyouwant')
+
+        self.book = Book.objects.create(
+            title='ayda', slug='ayda', athore=self.author,
+            description='noting', photo=img,release_date=1993
+        )
+        self.book.save()
+        self.book.genre.add(self.genre)
+
+        self.user = User.objects.create(username='haji', email='haji@haji.com', password='password')
+        self.token = Token.objects.create(user=self.user)
 
 
-class DeleteOrder(TestCase):
-    User = get_user_model()
-    user = get_object_or_404(User, pk=1)
-    book = get_object_or_404(Book, pk=5)
-    order = get_object_or_404(Order, pk=41, user=user, book=book)
-
-    # if order:
-    #     book.reserve = False
-    #     book.save()
-    #     order.is_reserve = False
-    #     order.save()
-        # print("delet Success")
+    def test_create_order(self):
+        if not self.book.reserve:
+            self.order = Order.objects.create(user=self.user, book=self.book)
+            self.assertEqual(self.order.id, 1)
 
 
-
-class GetOrderUser(TestCase):
-    User = get_user_model()
-    user = get_object_or_404(User, pk=1)
-    orders = Order.objects.filter(user=user, is_reserve=True)
-    for order in orders:
-        pass
-        # print(order.is_reserve)
+    def test_delete_order(self):
+        self.order = Order.objects.create(user=self.user, book=self.book)
+        self.order.delete()
+        self.assertNotEqual(self.order.id, 1)
 

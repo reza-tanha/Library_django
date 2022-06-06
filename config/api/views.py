@@ -1,5 +1,4 @@
 from django.db.models import Q
-from tokenize import Token
 from django.shortcuts import get_object_or_404
 from .serializer import BookSerializer, OrderSerializer, UserSerializer
 from rest_framework.decorators import api_view, permission_classes
@@ -49,7 +48,7 @@ def order_create(request):
             book.reserve=True
             book.save()
             order.save()
-        return Response(order.data)
+        return Response(order.data, status=201)
     return Response("Book Reserved")
 
 
@@ -64,7 +63,7 @@ def order_delete(request, pk):
         book.save()
         order.is_reserve=False
         order.save()
-        return Response("order Deleted")
+        return Response("order Deleted", status=204)
 
 
 @swagger_auto_schema(methods=['post'], request_body=UserSerializer)
