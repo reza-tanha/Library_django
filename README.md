@@ -226,8 +226,6 @@ print(response.json())
         "Authorization": "Token b65a24acc9eee40b5ddf9952bfb4bfe13eb86866",
   }
   DATA = {
-        "is_reserve": True,
-        "user": "1",
         "book": "5"
     }
   response = requests.get('http://127.0.0.1:8000/api/order/add/', headers=HEADER, data=json.dumps(DATA))
@@ -276,26 +274,6 @@ print(response.json())
  "order Deleted"
  ```
  
-
-
-
-
-
-
-
-
-    HEADER = {
-        "Content-Type": "application/json",
-        "Authorization": "Token 7062a10bde0cfba6b3692f8451b5f7c730a55a4e",
-    }
-    DATA = {
-            "is_reserve": True,
-            "user": "1",
-            "book": "5"
-        }
-    # response = requests.post('http://127.0.0.1:8000/api/order/add/', headers=HEADER, data=json.dumps(DATA))
-    # print(response.json())
-
 
 
 
