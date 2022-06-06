@@ -1,12 +1,27 @@
+from rest_framework.test import APITestCase 
+from rest_framework import status
 from django.test import TestCase
+from django.urls import reverse
 import requests
 import json
 
 
 
-class GetAllBookApi(TestCase):
-    pass#response = requests.get('http://127.0.0.1:8000/api/')
-    # print(response.json())
+class TestBookAppApi(APITestCase):
+
+    def test_get_all_book(self):
+        url = reverse('api:books')
+        # response = self.client.get(url)
+        # self.assertEqual(response.status_code, status.HTTP_200_OK)
+        
+        # response = requests.get('http://127.0.0.1:8000/api/')
+        # print(response.json())
+
+    def test_one_book(self):
+        url = reverse('<int:pk>', kwargs={'pk':1})#args=(1,)
+        response = self.client.get(url)
+        # print(response.status_code)
+        # self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
 
 class GetBookIdApi(TestCase):
@@ -38,8 +53,8 @@ class CreateUserOrderApi(TestCase):
             "user": "1",
             "book": "4"
         }
-    response = requests.post('http://127.0.0.1:8000/api/order/add/', headers=HEADER, data=json.dumps(DATA))
-    print(response.json())
+    # response = requests.post('http://127.0.0.1:8000/api/order/add/', headers=HEADER, data=json.dumps(DATA))
+    # print(response.json())
 
 class AddUserOrderApi(TestCase):
     HEADER = {
