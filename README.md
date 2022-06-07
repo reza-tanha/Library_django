@@ -1,5 +1,44 @@
 # Library_django
 
+## درباره : 
+پروژه کتاب خانه در جنگو و drf : قابلیت رزرو کتاب و تحویل کتاب  . 
+
+
+
+## قابلیت ها : 
+- دیدن همه کتاب های موجود در سایت 
+- دیدن اطلاعات یک کتاب خاص
+- قابلیت لیست کردن کتابهای رزور شده کاربر 
+- قابلیت اضافه کردن یک کتاب به لیست رزرو
+- قابلیت حذف یک کتاب از لیست سفارشات
+- ریجستر کردن یک کاربر به استفاده از api 
+
+
+
+## نصب کردن : 
+```
+$ git clone https://github.com/reza-tanha/Library_django
+$ cd Library_django
+$ pip install requirments.txt
+$ cd config/
+$ python manage.py runserver
+```
+
+# راه اندازی با داکر 
+
+```
+$ git clone https://github.com/reza-tanha/Library_django
+$ cd Library_django
+$ docker-compose up --build
+```
+
+
+
+
+
+
+
+
 ### راهنمای استفاده از api:‌
 - **[دیدن لیست کتابها](#دیدن-لیست-کل-کتاب-ها)**<br>
 - **[گرفتن اطلاعات یک کتاب](#گرفتن-اطلاعات-یک-کتاب-)**<br>
