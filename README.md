@@ -101,8 +101,9 @@ print(response.json())
   
   ## گرفتن اطلاعات یک کتاب : 
    - GET
+   - parameter [order id]
 - لینک درخواست :
--   ```http://127.0.0.1:8000/api/1```
+-   ```http://127.0.0.1:8000/api/<order id>```
 
 درخواست با پایتون : 
 ```
@@ -138,7 +139,7 @@ print(response.json())
 ## رجیستر کردن با api و دریافت توکن برای درخواست های بعد :
 
 
-   - POST
+ - POST
 - لینک درخواست :
 -   ```http://127.0.0.1:8000/api/register/```
 
@@ -215,6 +216,7 @@ print(response.json())
 
 
    - POST
+   - data : <book , book-id>
 - لینک درخواست :
 -   ```http://127.0.0.1:8000/api/order/add/```
 
@@ -252,8 +254,9 @@ print(response.json())
 
 
    - DELETE
+   - parameter [order id]
 - لینک درخواست :
--   ```http://127.0.0.1:8000/api/order/delete/<id order>```
+-   ```http://127.0.0.1:8000/api/order/delete/<order id>```
 
 درخواست با پایتون : 
 ```
