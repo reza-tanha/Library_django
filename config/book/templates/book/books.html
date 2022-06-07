@@ -1,21 +1,33 @@
 {% extends 'base.html' %}
-
 {% load static %}
+
+{% block header_tag %}
+    <link rel="stylesheet" href="{% static 'book/css/books.css' %}">
+{% endblock header_tag %}
+
 {% block content %}
-
-    {% for book in books %}
-    
-        <div class="card" style="width: 18rem;display:inline-block;">
-                <img src="{{ book.photo.url }}" alt="..." width="200px" height="200px">
-            <div class="card-body">
-                <h5 class="card-title">{{book.title}}</h5>
-                <p class="card-text" dir="ltr"></p>
-                <a href="{{ book.get_absolute_url }}" class="btn btn-primary">مشاهده کتاب</a>
+<div id="large-th">
+    <div class="container">
+      <h1 class="book-header"> لیست کتاب ها</h1>
+      <br>
+      <div id="list-th">
+        {% for book in books %}
+            <div class="book read">
+                <div class="cover">
+                    <img src="{{book.photo.url}}">
+                </div>
+                <div class="description">
+                    <p class="title">
+                      <span class="title-book">{{book.title}}<br></span>
+                      <span class="author">{{book.athore}}</span>
+                    </p>
+                    <a href="{{ book.get_absolute_url }}" id="show-book">Show Book</a>
+                </div>                
             </div>
-        </div>
-        
         {% empty %}
-        هیچ کتابی وجود ندارد
-    {% endfor %}
-
+            هیچ کتابی وجود ندارد
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 {% endblock content %}

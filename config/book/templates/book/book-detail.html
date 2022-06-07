@@ -1,23 +1,31 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block header_tag %}
+    <link rel="stylesheet" href="{% static 'book/css/book-detail.css' %}">
+{% endblock header_tag %}
+
 {% block content %}
+    <section class="sec-first">
+        <div class="sec-first-container">
+            <div class="img-detail">
+                <div class="img-back"></div>
+                <img src="{{ book.photo.url }}">
+            </div>
+            <div class="container-detail">
+                <span></span>
+                <h1>{{book.title}}</h1>
+                <p style="direction:rtl; padding-right:30px">{{book.description}}</p>
 
-    <div class="card" style="width: 18rem;display:inline-block;">
-        <img src="{{ book.photo.url }}" alt="..." width="200px" height="200px">
-        <div class="card-body">
-            <h5 class="card-title">{{book.title}}</h5>
-            <p class="card-text" dir="ltr">
-                {{book.description}}
-            </p>
-            {% if not book.reserve %}
-                <a href="{% url 'order:create-orders' book.id %}" class="btn btn-primary">رزرو کتاب</a>
-            {% else %}
-                <h2>این کتاب رزرو شده است</h2>
-            {% endif %}
-            
+                {% if not book.reserve %}
+                    <a href="{% url 'order:create-orders' book.id %}" class="reserve-btn">Reserve</a>
+                {% else %}
+                  <div class="reserve-book">
+                    <h2>این کتاب رزرو شده است</h2>
+                  </div>
+                {% endif %}
 
+            </div>
         </div>
-    </div>
-        
+    </section>
 {% endblock %}
