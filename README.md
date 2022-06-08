@@ -14,7 +14,7 @@
 
 ## Introduction:
 Library Django is a straightforward project that shows available books and lets you reserve books.<br>
-If you have the required permissions you can add, delete and edit the books in the Django admin or by the API.
+If you have the required permissions you can add, delete the books in the Django admin or by the API.
 
 
 ## Features
@@ -81,69 +81,30 @@ To run the tests, cd into the directory where manage.py is:
 - ....
 
 
-## درباره : 
-پروژه کتاب خانه در جنگو و drf : قابلیت رزرو کتاب و تحویل کتاب  . 
+## guide use api
+- **[show all books](#show-all-books)**<br>
+- **[show one book](#show-one-book)**<br>
+- **[register and get token](#register-and-get-token)**<br>
+- **[show books reserve list](#show-books-reserve-list)**<br>
+- **[book reserve](#book-reserve)**<br>
+- **[book revoke](#book-revoke)**<br>
 
 
 
-## قابلیت ها : 
-- دیدن همه کتاب های موجود در سایت 
-- دیدن اطلاعات یک کتاب خاص
-- قابلیت لیست کردن کتابهای رزور شده کاربر 
-- قابلیت اضافه کردن یک کتاب به لیست رزرو
-- قابلیت حذف یک کتاب از لیست سفارشات
-- ریجستر کردن یک کاربر به استفاده از api 
+## Show all books:
 
-
-
-## نصب کردن : 
-```
-$ git clone https://github.com/reza-tanha/Library_django
-$ cd Library_django
-$ pip install requirments.txt
-$ cd config/
-$ python manage.py runserver
-```
-
-# راه اندازی با داکر 
-
-```
-$ git clone https://github.com/reza-tanha/Library_django
-$ cd Library_django
-$ docker-compose up --build
-```
-
-
-
-
-
-
-
-
-### راهنمای استفاده از api:‌
-- **[دیدن لیست کتابها](#دیدن-لیست-کل-کتاب-ها)**<br>
-- **[گرفتن اطلاعات یک کتاب](#گرفتن-اطلاعات-یک-کتاب-)**<br>
-- **[دریافت توکن با ریجستر کردن](#رجیستر-کردن-با-api-و-دریافت-توکن-برای-درخواست-های-بعد-)**<br>
-- **[گرفتن لیست کتابهای رزرو شده کاربر](#گرفتن-لیست-کتابهای-رزرو-شده-توسط-کاربر--)**<br>
-- **[رزرو یک کتاب](#رزرو-کتاب-توسط-کاربر--)**<br>
-- **[تحویل کتاب](#تحویل-کتاب-توسط-کاربر--)**<br>
-
-
-
-## دیدن لیست کل کتاب ها
-
-  - GET
-- لینک درخواست :
+- GET
+- Request Link :
 -   ```http://127.0.0.1:8000/api/```
 
-درخواست با پایتون : 
+
+Request in pythn requests : 
 ```
 response = requests.get('http://127.0.0.1:8000/api/')
 print(response.json())
 ```
-### نتیجه نمایش داده شده تمامی کتابهای موجود در سیستم است(رزرو و غیر رزرو)
 
-- result : 
+#### Result : 
 
 ``` json
 [
@@ -217,21 +178,19 @@ print(response.json())
   ```
   
   
-  ## گرفتن اطلاعات یک کتاب : 
-   - GET
-   - parameter [order id]
-- لینک درخواست :
--   ```http://127.0.0.1:8000/api/<order id>```
+## show one book : 
+- GET
+- parameter [order id]
+- Request Link :
+```http://127.0.0.1:8000/api/<order id>```
 
-درخواست با پایتون : 
+Request in pythn requests : 
 ```
 response = requests.get('http://127.0.0.1:8000/api/1')
 print(response.json())
 ```
-### نتیجه نمایش یک کتاب 
+#### Result : 
 
-- result : 
-  
  ``` json
 {
     "id": 1,
@@ -252,31 +211,30 @@ print(response.json())
  
   
 
-##  در متد های بعدی نیازمند لاگین و یا داشتن توکن هستین . 
+#### in other Method  needed login or get token. 
 
-## رجیستر کردن با api و دریافت توکن برای درخواست های بعد :
+## register and get token :
 
 
- - POST
-- لینک درخواست :
--   ```http://127.0.0.1:8000/api/register/```
+- POST
+- Request Link :
+```http://127.0.0.1:8000/api/register/```
 
-درخواست با پایتون : 
+Request in pythn requests :  
+```
+HEADER = {
+    "Content-Type": "application/json",
+}
+DATA = {
+        "username": "user1",
+        "email": "user1@gmail.com",
+        "password": "pa55word"
+    }
+response = requests.post('http://127.0.0.1:8000/api/register/', headers=HEADER, data=json.dumps(DATA))
+print(response.json())
 ```
 
-  HEADER = {
-      "Content-Type": "application/json",
-  }
-  DATA = {
-          "username": "user1",
-          "email": "user1@gmail.com",
-          "password": "pa55word"
-      }
-  response = requests.post('http://127.0.0.1:8000/api/register/', headers=HEADER, data=json.dumps(DATA))
-  print(response.json())
-```
-### نتیجه ریجستر موفق کاربر 
-
+#### Result : 
 - result : 
   
  ``` json
@@ -286,26 +244,22 @@ print(response.json())
 
 
 
-## گرفتن لیست کتابهای رزرو شده توسط کاربر  :
+## show books reserve list :
+- GET
+- Request Link :  
+```http://127.0.0.1:8000/api/orders/```
 
-
-   - GET
-- لینک درخواست :
--   ```http://127.0.0.1:8000/api/orders/```
-
-درخواست با پایتون : 
+Request in pythn requests :  
+```
+HEADER = {
+    "Content-Type": "application/json",
+    "Authorization": "Token b65a24acc9eee40b5ddf9952bfb4bfe13eb86866",
+}
+response = requests.get('http://127.0.0.1:8000/api/orders/', headers=HEADER)
+print(response.json())
 ```
 
-  HEADER = {
-        "Content-Type": "application/json",
-        "Authorization": "Token b65a24acc9eee40b5ddf9952bfb4bfe13eb86866",
-  }
-  response = requests.get('http://127.0.0.1:8000/api/orders/', headers=HEADER)
-  print(response.json())
-```
-### نتیجه : ما دو کتاب رزرو کرده ایم.    
-
-- result : 
+#### Result : 
   
  ``` json
 [
@@ -327,33 +281,27 @@ print(response.json())
  ```
 
 
+## book reserve :
 
+- POST
+- data : <book , book-id>
+- Request Link :  
+```http://127.0.0.1:8000/api/order/add/```
 
-
-### رزرو کتاب توسط کاربر  :
-
-
-   - POST
-   - data : <book , book-id>
-- لینک درخواست :
--   ```http://127.0.0.1:8000/api/order/add/```
-
-درخواست با پایتون : 
+Request in pythn requests :
+```
+HEADER = {
+    "Content-Type": "application/json",
+    "Authorization": "Token b65a24acc9eee40b5ddf9952bfb4bfe13eb86866",
+}
+DATA = {
+    "book": "5"
+}
+response = requests.get('http://127.0.0.1:8000/api/order/add/', headers=HEADER, data=json.dumps(DATA))
+print(response.json())
 ```
 
-  HEADER = {
-        "Content-Type": "application/json",
-        "Authorization": "Token b65a24acc9eee40b5ddf9952bfb4bfe13eb86866",
-  }
-  DATA = {
-        "book": "5"
-    }
-  response = requests.get('http://127.0.0.1:8000/api/order/add/', headers=HEADER, data=json.dumps(DATA))
-  print(response.json())
-```
-### نتیجه : اگر کتاب از قبل رزرو نشده باشد به صورت زیر است.    
-
-- result : 
+#### Result : 
   
  ``` json
  {
@@ -367,30 +315,24 @@ print(response.json())
  ```
  
 
+## book revoke  :
 
-### تحویل کتاب توسط کاربر  :
+- DELETE
+- parameter [order id]
+- Request Link :  
+```http://127.0.0.1:8000/api/order/delete/<order id>```
 
-
-   - DELETE
-   - parameter [order id]
-- لینک درخواست :
--   ```http://127.0.0.1:8000/api/order/delete/<order id>```
-
-درخواست با پایتون : 
+Request in pythn requests :
 ```
+HEADER = {
+    "Content-Type": "application/json",
+    "Authorization": "Token b65a24acc9eee40b5ddf9952bfb4bfe13eb86866",
+}
 
-  HEADER = {
-        "Content-Type": "application/json",
-        "Authorization": "Token b65a24acc9eee40b5ddf9952bfb4bfe13eb86866",
-  }
-  
-  response = requests.get('http://127.0.0.1:8000/api/order/delete/70', headers=HEADER)
-  print(response.json())
+response = requests.get('http://127.0.0.1:8000/api/order/delete/70', headers=HEADER)
+print(response.json())
 ```
-### نتیجه :     
-
-- result : 
-  
+## Result :       
  ```
  "order Deleted"
  ```
