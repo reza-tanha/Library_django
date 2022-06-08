@@ -70,6 +70,7 @@ And navigate to http://127.0.0.1/
 To run the tests, cd into the directory where manage.py is:
 ```
 - $ cd Library_django
+- $ cd config/
 - $ python manage.py test 
 ```
 
