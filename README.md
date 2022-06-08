@@ -68,10 +68,14 @@ And navigate to http://127.0.0.1/
 
 ## Tests
 To run the tests, cd into the directory where manage.py is:
+
+#### add Secret key and Debug in the setings
 ```
 - $ cd Library_django
+- $ source .env 
+- $ export SECRET_KEY DEBUG  
 - $ cd config/
-- $ python manage.py test 
+- $ python manage.py test
 ```
 
 
