@@ -1,5 +1,86 @@
 # Library_django
 
+
+#### Table of Contents
+- **[Introduction](#introduction)**<br>
+- **[Features](#features)**<br>
+- **[Setup](#setup)**<br>
+- **[Docker Setup](#docker-setup)**<br>
+- **[Tests](#tests)**<br>
+- **[TODO List](#todo)**<br>
+
+<br>
+
+
+## Introduction:
+Library Django is a straightforward project that shows available books and lets you reserve books.<br>
+If you have the required permissions you can add, delete and edit the books in the Django admin or by the API.
+
+
+## Features
+- Drf RestApi: authenticate users and show, create, edit, and delete the books.
+- Cloud: Optimized for deployments using Docker.
+- WebServer: Configure Nginx caching, security, and compression.
+- Swager: generate documentation for API.
+
+<br>
+
+## Setup
+The first thing to do is to clone the repository:
+```
+- $ git clone https://github.com/reza-tanha/Library_django
+- $ cd Library_django
+````
+
+Create a virtual environment to install dependencies in and activate it:
+```
+- $ virtualenv --no-site-packages env
+- $ source env/bin/activate
+```
+
+Then install the dependencies:
+```
+- $ pip install requirments.txt
+- $ cd config/
+- $ python manage.py runserver
+```
+And navigate to http://127.0.0.1:8000/
+
+<br>
+
+## Docker Setup
+First clone the repository:
+```
+- $ git clone https://github.com/reza-tanha/Library_django
+- $ cd Library_django
+```
+
+Then user docker-compose tools to build and SetUp the containers.
+```
+- $ docker compose up
+OR
+- $ docker compose up -d 
+To run containers in background
+```
+And navigate to http://127.0.0.1/
+
+<br>
+
+## Tests
+To run the tests, cd into the directory where manage.py is:
+```
+- $ cd Library_django
+- $ python manage.py test 
+```
+
+
+## TODO
+- Add some fields to the book model like pages-number, rating, etc.
+- Add a section to register and log in new users.
+- Update templates
+- ....
+
+
 ## درباره : 
 پروژه کتاب خانه در جنگو و drf : قابلیت رزرو کتاب و تحویل کتاب  . 
 
