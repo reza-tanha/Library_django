@@ -83,11 +83,11 @@ To run the tests, cd into the directory where manage.py is:
 
 ## guide use api
 - **[show all books](#show-all-books)**<br>
-- **[show one book](#show-one-book)**<br>
-- **[register and get token](#register-and-get-token)**<br>
-- **[show books reserve list](#show-books-reserve-list)**<br>
-- **[book reserve](#book-reserve)**<br>
-- **[book revoke](#book-revoke)**<br>
+- **[show one book](#show-one-book-)**<br>
+- **[register and get token](#register-and-get-token-)**<br>
+- **[show books reserve list](#show-books-reserve-list-)**<br>
+- **[book reserve](#book-reserve-)**<br>
+- **[book revoke](#book-revoke--)**<br>
 
 
 
