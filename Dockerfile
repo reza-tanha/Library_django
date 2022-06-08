@@ -1,10 +1,18 @@
 FROM python:latest
+
 WORKDIR /app
+
+# set environment varibles
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-RUN pip install --upgrade pip
+
+# copy data
 COPY ./requirements.txt .
-RUN pip install -r requirements.txt
-COPY ./config /app
-COPY ./entrypoint.sh /
-ENTRYPOINT ["sh", "/entrypoint.sh"]
+COPY ./config .
+COPY ./entrypoint.sh .
+
+# install dependencies
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+# run entrypoint.sh
+ENTRYPOINT ["sh", "entrypoint.sh"]
