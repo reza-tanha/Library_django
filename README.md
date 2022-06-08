@@ -178,7 +178,7 @@ print(response.json())
   ```
   
   
-## show one book : 
+## Show one book : 
 - GET
 - parameter [order id]
 - Request Link :
@@ -213,7 +213,7 @@ print(response.json())
 
 #### in other Method  needed login or get token. 
 
-## register and get token :
+## Register and get token :
 
 
 - POST
@@ -244,7 +244,7 @@ print(response.json())
 
 
 
-## show books reserve list :
+## Show books reserve list :
 - GET
 - Request Link :  
 ```http://127.0.0.1:8000/api/orders/```
@@ -281,7 +281,7 @@ print(response.json())
  ```
 
 
-## book reserve :
+## Book reserve :
 
 - POST
 - data : <book , book-id>
@@ -315,7 +315,7 @@ print(response.json())
  ```
  
 
-## book revoke  :
+## Book revoke  :
 
 - DELETE
 - parameter [order id]
